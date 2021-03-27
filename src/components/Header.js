@@ -1,7 +1,12 @@
 import React from 'react';
 
-const Header = () => {
-  return <div>Header</div>;
+const Header = (props) => {
+  return (
+    <div className='header'>
+      <div>Score: {props.score}</div>
+      <did>Best Score: {props.bestScore}</did>
+    </div>
+  );
 };
 
 export default Header;
