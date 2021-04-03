@@ -4,7 +4,7 @@ const Header = (props) => {
   return (
     <div className='header'>
       <div>Score: {props.score}</div>
-      <did>Best Score: {props.bestScore}</did>
+      <div>Best Score: {props.bestScore}</div>
     </div>
   );
 };

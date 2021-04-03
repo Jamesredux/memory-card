@@ -1,4 +1,32 @@
+button > * {
+  pointer-events: none;
+}
+
 .header {
   background-color: greenyellow;
   height: 120px;
+}
+
+.card-wrapper {
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 90%;
+  margin: auto;
+}
+
+.card-box {
+  border: 1px solid green;
+  min-width: 150px;
+
+  min-height: 150px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-box:hover {
+  border: 1px solid greenyellow;
 }
