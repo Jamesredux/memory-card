@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-function updateCard(key) {
-  console.log(key);
-}
-
 const CardContainer = () => {
   const [cards, setCard] = useState([
     {
@@ -80,9 +76,25 @@ const CardContainer = () => {
     },
   ]);
 
+  const checkCard = (pickedCard) => {
+    console.log('check cards');
+    // just a method to end game if picked already
+    cards.map((card) => {
+      if (card.id === pickedCard && card.picked) {
+        console.log(card);
+        console.log(card.id);
+        console.log('picked already');
+        // props
+        // end game
+        return true;
+      } else {
+        return false;
+      }
+    });
+  };
+
   useEffect(() => {
-    console.log('use effect');
-    console.log(cards);
+    const cardDivs = document.querySelectorAll('.card-box');
 
     const shuffleCards = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
@@ -91,36 +103,61 @@ const CardContainer = () => {
         array[i] = array[j];
         array[j] = temp;
       }
-      return array;
     };
 
-    const newOrder = shuffleCards(cards);
+    const handleClick = (e) => {
+      console.log('handle click');
+      const pickedCard = e.target.dataset.key;
+      const cardsCopy = [...cards];
+      if (checkCard(pickedCard)) {
+        // end game
+      } else {
+        updateCards(pickedCard, cardsCopy);
+        shuffleCards(cardsCopy);
+      }
 
-    console.log(newOrder);
-    setCard(newOrder);
-    console.log('***************');
-    console.log(cards);
-    const cardDivs = document.querySelectorAll('.card-box');
+      console.log(cardsCopy);
+
+      setCard([...cardsCopy]);
+      console.log('cards cards');
+      console.log(cards);
+
+      //check if picked
+      //update pick
+      //update score
+      //shuffle pack
+    };
+
+    const updateCards = (pickedCard, cardsCopy) => {
+      console.log('update cards');
+      cardsCopy.map((card) => {
+        if (card.id === pickedCard) {
+          card.picked = true;
+        }
+      });
+    };
+
     cardDivs.forEach((card) => {
       card.addEventListener('click', (e) => {
-        console.log(e);
-        updateCard(e.target.dataset.key);
+        handleClick(e);
       });
     });
 
     return () => {
       cardDivs.forEach((card) => {
+        console.log('removing listener');
         card.removeEventListener('click', (e) => {
-          console.log(e);
-          updateCard(e.target.dataset.key);
+          handleClick(e);
         });
       });
     };
-  }, [cards]);
+  }, []);
 
   return (
     <div>
       <div className='card-wrapper'>
+        {console.log('+++++++++++++++++')}
+        {console.log(cards)}
         {cards.map(function (card) {
           return (
             <button className='card-box' data-key={card.id} key={card.id}>
