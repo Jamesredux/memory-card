@@ -4,8 +4,17 @@ import Header from './components/Header';
 import CardContainer from './components/CardContainer';
 
 function App() {
-  const [score, setScore] = useState(12);
+  const [score, setScore] = useState(0);
   const [bestScore, setbestScore] = useState(0);
+
+  const addScore = () => {
+    setScore(score + 1);
+    if (score >= bestScore) {
+      console.log(score);
+      setbestScore(score);
+      console.log(bestScore);
+    }
+  };
 
   const endGame = () => {
     console.log('called this fucker');
@@ -17,7 +26,7 @@ function App() {
   return (
     <div className='App'>
       <Header score={score} bestScore={bestScore} />
-      <CardContainer gameOver={endGame} score={score} />
+      <CardContainer gameOver={endGame} addScore={addScore} score={score} />
     </div>
   );
 }
