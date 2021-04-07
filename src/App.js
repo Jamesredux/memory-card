@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import CardContainer from './components/CardContainer';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     <div className='App'>
       <Header score={score} bestScore={bestScore} />
       <CardContainer gameOver={endGame} addScore={addScore} score={score} />
+      <Footer />
     </div>
   );
 }
