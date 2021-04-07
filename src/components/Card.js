@@ -22,7 +22,7 @@ const Card = (props) => {
   return (
     <button className='card-box' onClick={updateCard} data-key={props.card.id}>
       <div className='thai-month'>{props.card.thai}</div>
-      <div>{props.card.month}</div>
+      {props.showenglish && <div>{props.card.month}</div>}
     </button>
   );
 };

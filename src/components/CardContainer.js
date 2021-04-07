@@ -95,7 +95,12 @@ const CardContainer = (props) => {
         {cards.map(function (card) {
           return (
             <div key={card.id}>
-              <Card handleClick={handleClick} card={card} reset={reset} />
+              <Card
+                handleClick={handleClick}
+                card={card}
+                reset={reset}
+                showenglish={props.showenglish}
+              />
             </div>
           );
         })}

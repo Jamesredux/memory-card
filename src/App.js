@@ -7,6 +7,7 @@ import CardContainer from './components/CardContainer';
 function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setbestScore] = useState(0);
+  const [showenglish, setShowenglish] = useState(true);
 
   const addScore = () => {
     setScore(score + 1);
@@ -14,6 +15,10 @@ function App() {
 
   const endGame = () => {
     setScore(0);
+  };
+
+  const toggleEnglish = () => {
+    setShowenglish(!showenglish);
   };
 
   useEffect(() => {
@@ -24,8 +29,17 @@ function App() {
 
   return (
     <div className='App'>
-      <Header score={score} bestScore={bestScore} />
-      <CardContainer gameOver={endGame} addScore={addScore} score={score} />
+      <Header
+        score={score}
+        bestScore={bestScore}
+        toggleEnglish={toggleEnglish}
+      />
+      <CardContainer
+        gameOver={endGame}
+        addScore={addScore}
+        score={score}
+        showenglish={showenglish}
+      />
       <Footer />
     </div>
   );
