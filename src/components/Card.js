@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const Card = (props) => {
   const [picked, setPicked] = useState(false);
@@ -21,7 +21,7 @@ const Card = (props) => {
 
   return (
     <button className='card-box' onClick={updateCard} data-key={props.card.id}>
-      <div>{props.card.thai}</div>
+      <div className='thai-month'>{props.card.thai}</div>
       <div>{props.card.month}</div>
     </button>
   );

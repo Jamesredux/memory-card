@@ -9,19 +9,17 @@ function App() {
 
   const addScore = () => {
     setScore(score + 1);
-    if (score >= bestScore) {
-      console.log(score);
-      setbestScore(score);
-      console.log(bestScore);
-    }
   };
 
   const endGame = () => {
-    console.log('called this fucker');
     setScore(0);
   };
 
-  useEffect(() => {});
+  useEffect(() => {
+    if (score > bestScore) {
+      setbestScore(score);
+    }
+  }, [score, bestScore]);
 
   return (
     <div className='App'>

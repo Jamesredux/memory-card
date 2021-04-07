@@ -30,3 +30,7 @@ button > * {
 .card-box:hover {
   border: 1px solid greenyellow;
 }
+
+.thai-month {
+  font-size: 1.5rem;
+}
