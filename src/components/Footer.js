@@ -10,7 +10,7 @@ const Footer = () => {
             The Odin Project
           </a>{' '}
           by <a href='https://github.com/Jamesredux'>James Redux</a>.{' '}
-          <a href='https://github.com/Jamesredux/memory-card'>Source Code</a>
+          <a href='https://github.com/Jamesredux/memory-card'>View Code</a>
         </p>
       </div>
     </div>

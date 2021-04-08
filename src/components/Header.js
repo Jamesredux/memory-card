@@ -10,8 +10,9 @@ const Header = (props) => {
       <div className='score-box'>
         <div>Score: {props.score}</div>
         <div>Best Score: {props.bestScore}</div>
-        <div>
-          Hide English:
+        <div id='toggle'>
+          <label>Hide English:</label>
+
           <input
             type='checkbox'
             name='hideEnglish'
@@ -25,5 +26,3 @@ const Header = (props) => {
 };
 
 export default Header;
-
-// maybe put this in a folder
